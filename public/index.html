@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFESCTY0S4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EFESCTY0S4');
+</script>
+
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Generate powerful LinkedIn Boolean search strings effortlessly! Find the right candidates or job opportunities with precise targeting. Easy-to-use app for recruiters, job seekers, and researchers." />
+
+  <meta name="google-site-verification" content="zDYE9CKvXIbXZNd02uOO3KK_di9JhmjQpIVHrtXzOLI" />
+
+  <!-- Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Boolean Search String Generator" />
+    <meta property="og:description" content="Quickly generate advanced Boolean search strings to find top search results on LinkedIn!" />
+    <meta property="og:image" content="https://notoolsnocraft.github.io/boolean-search-string-generator/Boolean%20Search%20String%20Generator.webp" />
+    <meta property="og:url" content="https://notoolsnocraft.github.io/boolean-search-string-generator/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Boolean Search String Generator" />
+    <meta name="twitter:description" content="Quickly generate advanced Boolean search strings to find top search results on LinkedIn!" />
+    <meta name="twitter:image" content="https://notoolsnocraft.github.io/boolean-search-string-generator/Boolean%20Search%20String%20Generator.webp" />
+    <meta name="twitter:site" content="https://notoolsnocraft.github.io/boolean-search-string-generator/" />
+  
+  <title>Boolean Search String Generator</title>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #ffffff;
+    }
+
+    /* Top Navigation */
+    .navbar {
+      background-color: #5f0057;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+  /* Intro Content */
+    .intro {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    max-width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    gap: 20px;
+    
+    }
+
+    .intro-text {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .intro-text h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #0077cc;
+    text-align: center;
+    }
+
+    .intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: justify;
+    }
+
+    .intro-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+    }
+
+    .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    }
+
+    .start-button {
+      display: inline-block;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .start-button:hover {
+      background: #005fa3;
+    }
+
+    /* Main Content */
+    main {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1500px;
+      background: #d9ffa8;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      
+      font-size: 1.1rem;
+      
+    }
+
+    .input-group {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 0 10px;
+      margin-right: 10px;
+      font-size: 15px;
+    }
+
+    .input-group button {
+      
+        display: inline-block;
+                outline: 0;
+                border: none;
+                cursor: pointer;
+                line-height: 1.2rem;
+                font-weight: 900;
+                background: #007a5a;
+                padding: 8px 14px 9px;
+                font-size: 15px;
+                border-radius: 4px;
+                color: #fff;
+                height: 36px;
+                margin-right: 10px;
+                
+    }
+
+    #output {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      font-size: 17px;
+      min-height: 110px;
+    }
+
+    button {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 2px solid #ff4742;
+    color: #fff;
+    background-color: #ff4742;
+    padding: 4px 8px; /* reduced padding */
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+    font-weight: 600; /* slightly lighter */
+    font-size: 14px;  /* smaller font */
+    height: auto;     /* let content determine height */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+    button.generate {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.generate:hover {
+      background: #005fa3;
+    }
+
+
+    .intro.double-text {
+  justify-content: space-between;
+  align-items: flex-start; /* Make sure top alignment is preserved */
+}
+
+
+
+    /* Footer */
+    footer {
+        
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .container-wide {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0 20px;
+    }
+
+    .ai-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    textarea#inputText {
+      resize: vertical;
+      width: 100%;
+      flex-grow: 1;
+      min-height: 200px;
+      max-height: 400px;
+      font-size: 1rem;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .analyze-section,
+    .generated-section {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .generated-section {
+      max-width: 1700px;
+    }
+
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 1rem;
+      }
+
+      .reset {
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+  .ai-layout {
+    flex-direction: column;
+  }
+
+  .analyze-section,
+  .generated-section {
+    width: 100%;
+  }
+}
+
+
+    
+  </style>
+  <link rel="stylesheet" href="suggestedJobs.css">
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <h2>Boolean Search String Generator</h2>
+    
+  </nav>
+  
+
+  
+
+  <main>
+    <div class="container">
+      <h1 id="main-app">Boolean Search Generator</h1>
+
+      <div class="form-grid">
+        
+        <div class="section">
+          <h3>Job Titles (OR logic)</h3>
+          <div id="jobTitles"></div>
+          <button onclick="addField('jobTitles')">Add Job Title</button>
+        </div>
+
+          <div class="section">
+            <h3>Exclude Job Titles (NOT logic)</h3>
+            <div id="excludeJobTitles"></div>
+            <button onclick="addField('excludeJobTitles')">Add Exclude Job Title</button>
+          </div>
+      
+          <div class="section">
+            <h3>Mandatory Skills (AND logic)</h3>
+            <div id="mandatorySkills"></div>
+            <button onclick="addField('mandatorySkills')">Add Mandatory Skill</button>
+          </div>
+      
+          <div class="section">
+            <h3>Nice to Have Skills (OR logic)</h3>
+            <div id="niceSkills"></div>
+            <button onclick="addField('niceSkills')">Add Nice to Have Skill</button>
+          </div>
+       
+          <div class="section">
+            <h3>Locations (OR logic)</h3>
+            <div id="locations"></div>
+            <button onclick="addField('locations')">Add Location</button>
+          </div>
+
+          <div class="section">
+            <h3>Exclude Locations (NOT logic)</h3>
+            <div id="excludelocations"></div>
+            <button onclick="addField('excludelocations')">Add Location</button>
+          </div>
+
+          <div class="section">
+            <h3>Industries (OR logic)</h3>
+            <div id="industries"></div>
+            <button onclick="addField('industries')">Add Industry</button>
+          </div>
+
+          <div class="section">
+            <h3>Exclude Industries (NOT logic)</h3>
+            <div id="excludeindustries"></div>
+            <button onclick="addField('excludeindustries')">Add Industry</button>
+          </div>
+
+          <div class="section">
+            <h3>Current Company (OR logic)</h3>
+            <div id="currentCompanies"></div>
+            <button onclick="addField('currentCompanies')">Add Current Company</button>
+          </div>
+          
+          <div class="section">
+            <h3>Past Company (OR logic)</h3>
+            <div id="pastCompanies"></div>
+            <button onclick="addField('pastCompanies')">Add Past Company</button>
+          </div>
+
+          <div class="section">
+            <h3>Exclude Company (NOT logic)</h3>
+            <div id="excludeCompanies"></div>
+            <button onclick="addField('excludeCompanies')">Add Past Company</button>
+          </div>
+          
+          <div class="section">
+            <h3>School / University (OR logic)</h3>
+            <div id="schools"></div>
+            <button onclick="addField('schools')">Add School</button>
+          </div>
+          
+          <div class="section">
+            <h3>Field of Study (OR logic)</h3>
+            <div id="fieldsOfStudy"></div>
+            <button onclick="addField('fieldsOfStudy')">Add Field of Study</button>
+          </div>
+          
+          
+          <div class="section">
+            <h3>Seniority Level (OR logic)</h3>
+            <div id="seniorityLevels"></div>
+            <button onclick="addField('seniorityLevels')">Add Seniority Level</button>
+          </div>
+
+          <div class="section">
+            <h3>Exclude Seniority (NOT logic)</h3>
+            <div id="excludeseniorityLevels"></div>
+            <button onclick="addField('excludeseniorityLevels')">Add Seniority Level</button>
+          </div>
+          
+          
+          <div class="section">
+            <h3>Keywords (OR logic)</h3>
+            <div id="keywords"></div>
+            <button onclick="addField('keywords')">Add Keyword</button>
+          </div>
+      
+      
+          <div class="section">
+            <h3>Exclude Keywords (NOT logic)</h3>
+            <div id="excludes"></div>
+            <button onclick="addField('excludes')">Add Exclude Term</button>
+          </div>
+        
+      </div>
+      <div class="ai-layout">
+        <div class="analyze-section">
+          <h3>Analyze Job Description / Profile</h3>
+          <textarea id="inputText" rows="5" placeholder="Paste job description or profile here..."></textarea>
+          <button onclick="analyzeText()">Analyze with AI</button>
+        </div>
+      
+        <div class="generated-section">
+          <button class="generate" onclick="generateBoolean()">Generate Boolean Search</button>
+      
+          <div class="section">
+            <h3>Generated Boolean Search</h3>
+            <pre id="output"></pre>
+          </div>
+      
+          <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+          <button onclick="searchOnGoogle()">🔍 Search on Google</button>
+          <button class="reset" onclick="resetFields()">♻️ Reset</button>
+        </div>
+      </div>
+      
+  </main>
+
+  
+  
+
+  <footer>
+    <p>The app was created by:<a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">Petar Škrbić</a></p>
+    &copy; 2025 Boolean Search String Generator App. All rights reserved.
+    
+  </footer>
+
+
+  <script>
+    // Helper functions
+    function quoteIfNeeded(value) {
+      return value.includes(" ") ? `"${value}"` : value;
+    }
+  
+    function collectValues(sectionId) {
+      return [...document.getElementById(sectionId).querySelectorAll("input")]
+        .map(input => input.value.trim())
+        .filter(value => value);
+    }
+  
+    const locationExpansions = {
+      "uk": ["UK", "United Kingdom"],
+      "united kingdom": ["UK", "United Kingdom"],
+      "us": ["US", "United States", "USA"],
+      "united states": ["US", "United States", "USA"],
+      "usa": ["US", "United States", "USA"],
+      "uae": ["UAE", "United Arab Emirates"],
+      "germany": ["Germany", "Deutschland"],
+      "netherlands": ["Netherlands", "Holland"],
+      "united arab emirates": ["UAE", "United Arab Emirates"],
+      "uae": ["UAE", "United Arab Emirates"],
+      // Add more countries/regions as needed
+    };
+  
+    const industryExpansions = {
+      "apple": ["Apple", "Mac", "iOS"],
+      "microsoft": ["Microsoft", "Windows", "Azure"],
+      "google": ["Google", "Android", "YouTube"],
+      "amazon": ["Amazon", "AWS", "Prime"],
+      // Add more companies/brands/tech domains as needed
+    };
+  
+    function expandLocations(locations) {
+      const flatSet = new Set();
+  
+      return locations.map(loc => {
+        const key = loc.trim().toLowerCase();
+        const expansions = locationExpansions[key];
+  
+        if (expansions && expansions.length > 1) {
+          const deduped = expansions
+            .map(quoteIfNeeded)
+            .filter(item => {
+              if (flatSet.has(item.toLowerCase())) return false;
+              flatSet.add(item.toLowerCase());
+              return true;
+            });
+  
+          return deduped.length > 1 ? `(${deduped.join(" OR ")})` : deduped[0];
+        } else {
+          const cleaned = quoteIfNeeded(loc);
+          if (flatSet.has(cleaned.toLowerCase())) return null;
+          flatSet.add(cleaned.toLowerCase());
+          return cleaned;
+        }
+      }).filter(Boolean);
+    }
+  
+    function expandIndustries(industries) {
+      const flatSet = new Set();
+  
+      return industries.map(ind => {
+        const key = ind.trim().toLowerCase();
+        const expansions = industryExpansions[key];
+  
+        if (expansions && expansions.length > 1) {
+          const deduped = expansions
+            .map(quoteIfNeeded)
+            .filter(item => {
+              if (flatSet.has(item.toLowerCase())) return false;
+              flatSet.add(item.toLowerCase());
+              return true;
+            });
+  
+          return deduped.length > 1 ? `(${deduped.join(" OR ")})` : deduped[0];
+        } else {
+          const cleaned = quoteIfNeeded(ind);
+          if (flatSet.has(cleaned.toLowerCase())) return null;
+          flatSet.add(cleaned.toLowerCase());
+          return cleaned;
+        }
+      }).filter(Boolean);
+    }
+  
+    function generateBoolean() {
+  
+    const jobTitlesRaw = collectValues("jobTitles").map(quoteIfNeeded);
+    const excludeJobTitles = collectValues("excludeJobTitles").map(quoteIfNeeded);
+  
+    const locationsRaw = collectValues("locations");
+    const excludelocations = collectValues("excludelocations").map(quoteIfNeeded);
+  
+    const industriesRaw = collectValues("industries");
+    const excludeindustries = collectValues("excludeindustries").map(quoteIfNeeded);
+  
+    const excludesRaw = collectValues("excludes").map(val => `NOT ${quoteIfNeeded(val)}`);
+    const mandatorySkills = collectValues("mandatorySkills").map(quoteIfNeeded);
+    const niceSkills = collectValues("niceSkills").map(quoteIfNeeded);
+  
+    const currentCompanies = collectValues("currentCompanies").map(quoteIfNeeded).join(" OR ");
+    const pastCompanies = collectValues("pastCompanies").map(quoteIfNeeded).join(" OR ");
+    const excludeCompanies = collectValues("excludeCompanies").map(quoteIfNeeded);
+  
+    const schools = collectValues("schools").map(quoteIfNeeded).join(" OR ");
+    const fieldsOfStudy = collectValues("fieldsOfStudy").map(quoteIfNeeded).join(" OR ");
+    
+    const seniorityLevels = collectValues("seniorityLevels").map(quoteIfNeeded).join(" OR ");
+    const excludeseniorityLevels = collectValues("excludeseniorityLevels").map(quoteIfNeeded);
+  
+  
+    const keywords = collectValues("keywords").map(quoteIfNeeded).join(" OR ");
+  
+  
+  
+    const jobTitlesQuery = jobTitlesRaw.length > 1
+      ? `(${jobTitlesRaw.join(" OR ")})`
+      : jobTitlesRaw[0];
+  
+    const expandedIndustries = expandIndustries(industriesRaw);
+    const industriesQuery = expandedIndustries.length > 1
+      ? `(${expandedIndustries.join(" OR ")})`
+      : expandedIndustries[0];
+  
+    const expandedLocations = expandLocations(locationsRaw);
+    const locationsQuery = expandedLocations.length > 1
+      ? `(${expandedLocations.join(" OR ")})`
+      : expandedLocations[0];
+  
+    const mandatorySkillsQuery = mandatorySkills.length > 0
+      ? mandatorySkills.join(" AND ")
+      : null;
+  
+    const niceSkillsQuery = niceSkills.length > 1
+      ? `(${niceSkills.join(" OR ")})`
+      : niceSkills[0];
+  
+    const excludesQuery = excludesRaw.join(" AND ");
+  
+    const parts = [];
+    if (jobTitlesQuery) parts.push(jobTitlesQuery);
+    if (excludeJobTitles.length) parts.push(`NOT (${excludeJobTitles.join(" OR ")})`);
+  
+    if (mandatorySkillsQuery) parts.push(mandatorySkillsQuery);
+    if (niceSkillsQuery) parts.push(niceSkillsQuery);
+  
+    if (locationsQuery) parts.push(locationsQuery);
+    if (excludelocations.length) parts.push(`NOT (${excludelocations.join(" OR ")})`);
+    
+    if (industriesQuery) parts.push(industriesQuery);
+    if (excludeindustries.length) parts.push(`NOT (${excludeindustries.join(" OR ")})`);
+  
+    if (currentCompanies) parts.push(`(${currentCompanies})`);
+    if (pastCompanies) parts.push(`(${pastCompanies})`);
+    if (excludeCompanies.length) parts.push(`NOT (${excludeCompanies.join(" OR ")})`);
+  
+    if (schools) parts.push(`(${schools})`);
+    if (fieldsOfStudy) parts.push(`(${fieldsOfStudy})`);
+   
+    if (seniorityLevels) parts.push(`(${seniorityLevels})`);
+    if (excludeseniorityLevels.length) parts.push(`NOT (${excludeseniorityLevels.join(" OR ")})`);
+  
+    
+    if (keywords) parts.push(`(${keywords})`);
+    
+    
+    if (excludesQuery) parts.push(excludesQuery);
+  
+    const finalQuery = parts.join(" \nAND ");
+    document.getElementById("output").textContent = finalQuery || "No input provided.";
+  }
+  
+  
+  
+    // Copy to clipboard
+    function copyToClipboard() {
+      const output = document.getElementById("output").textContent;
+      navigator.clipboard.writeText(output).then(() => {
+        alert("Copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy text: " + err);
+      });
+    }
+  
+    // Add input fields dynamically
+    function addField(sectionId) {
+    const container = document.getElementById(sectionId);
+    const div = document.createElement("div");
+    div.className = "input-group";
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Enter value...";
+    input.oninput = () => filterSuggestions(input, sectionId); // Trigger suggestion on input change
+  
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "X";
+  
+    removeBtn.onclick = () => {
+      // Call clearSuggestions for the specific section before removing the input field
+      clearSuggestions(sectionId);
+      div.remove();
+    };
+  
+    div.appendChild(input);
+    div.appendChild(removeBtn);
+    container.appendChild(div);
+  }
+  
+  function displaySuggestions(input, suggestions, sectionId) {
+    clearSuggestions(sectionId);
+  
+    const suggestionContainer = document.createElement("div");
+    suggestionContainer.classList.add("suggested-results");
+  
+    suggestions.forEach(suggestion => {
+      const suggestionElement = document.createElement("div");
+      suggestionElement.classList.add("suggestion");
+      suggestionElement.textContent = suggestion;
+      suggestionElement.onclick = () => {
+        input.value = suggestion;
+        clearSuggestions(sectionId);
+      };
+      suggestionContainer.appendChild(suggestionElement);
+    });
+  
+    document.getElementById(sectionId).appendChild(suggestionContainer);
+  }
+  
+  function filterSuggestions(input, sectionId) {
+    const query = input.value.toLowerCase();
+    const allSuggestions = suggestionSources[sectionId] || [];
+    const filtered = allSuggestions.filter(item => item.toLowerCase().startsWith(query));
+  
+    if (query.length === 0 || !filtered.length) {
+      clearSuggestions(sectionId);
+      return;
+    }
+  
+    displaySuggestions(input, filtered, sectionId);
+  }
+  
+  function clearSuggestions(sectionId) {
+    const suggestionContainers = document.querySelectorAll(`#${sectionId} .suggested-results`);
+    suggestionContainers.forEach(container => container.remove());
+  }
+  
+  // --- CLICK OUTSIDE TO CLOSE (Adapt for dynamically added inputs) ---
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll('.section > div.input-group > input').forEach(inputElement => {
+      const sectionId = inputElement.closest('.section')?.querySelector('[id]')?.id;
+      const suggestionContainer = inputElement.parentElement?.querySelector('.suggested-results');
+  
+      const clickedInside = inputElement.contains(event.target) || suggestionContainer?.contains(event.target);
+  
+      if (sectionId && !clickedInside) {
+        clearSuggestions(sectionId);
+      }
+    });
+  });
+  
+    function searchOnGoogle() {
+    let output = document.getElementById("output").textContent.trim();
+    if (!output) {
+      alert("Please generate a Boolean search string first.");
+      return;
+    }
+  
+    // 1. Replace 'AND NOT (something)' with splitting exclusions
+    output = output.replace(/\s+AND\s+NOT\s+\(([^)]+)\)/g, (match, group) => {
+      const exclusions = group.split(/\s+OR\s+/).map(term => {
+        term = term.trim();
+        if (!term.startsWith('"')) {
+          term = `"${term}"`;
+        }
+        return `-${term}`;
+      });
+      return ' ' + exclusions.join(' ');
+    });
+  
+    // 2. Replace 'AND NOT something' (without parentheses)
+    output = output.replace(/\s+AND\s+NOT\s+(\S+)/g, (match, term) => {
+      term = term.trim();
+      if (!term.startsWith('"')) {
+        term = `"${term}"`;
+      }
+      return ` -${term}`;
+    });
+  
+    // 3. Replace 'AND' with a space
+    output = output.replace(/\s+AND\s+/g, ' ');
+  
+    // 4. Process words carefully without breaking phrases
+    output = output.replace(/(\(|\)|OR|-?site:[^\s]+|-?"[^"]+"|-?\w+)/g, match => {
+      if (
+        match.startsWith('site:') ||    // already a site
+        match === 'OR' ||                // operator
+        match.startsWith('(') ||          // parentheses
+        match.startsWith(')') ||
+        match.startsWith('-"') ||         // already quoted exclusion
+        match.startsWith('"') ||          // already quoted inclusion
+        match.startsWith('-(')            // exclusion group
+      ) {
+        return match;
+      }
+      
+      if (match.startsWith('-')) {
+        // Exclusion word
+        const word = match.substring(1);
+        return `-"${word}"`;
+      }
+  
+      // Normal word
+      return `"${match}"`;
+    });
+  
+    // 5. Add site search
+    const base = 'site:linkedin.com/in/ OR site:linkedin.com/pub/';
+    const fullQuery = `${base} ${output}`;
+  
+    // 6. Encode and open
+    const encodedQuery = encodeURIComponent(fullQuery);
+    const searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
+    window.open(searchUrl, '_blank');
+  }
+  
+  
+  function resetFields() {
+    const sectionIds = [
+      'jobTitles', 'excludeJobTitles', 'mandatorySkills', 'niceSkills',
+      'locations', 'excludelocations', 'industries', 'excludeindustries','currentCompanies',
+      'pastCompanies', 'excludeCompanies', 'schools', 'fieldsOfStudy', 'seniorityLevels',
+      'excludeseniorityLevels', 'keywords', 'excludes'
+    ];
+  
+    sectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) section.innerHTML = ''; // Clear all inputs and their associated "X" buttons
+    });
+  
+    document.getElementById('output').textContent = ''; // Clear generated output if needed
+  }
+  
+  
+  
+  
+  </script>
+
+<script src="suggestedResults.js"></script>
+<script src="gptScript.js"></script>
+
+
+
+
+
+
+</body>
+</html>
