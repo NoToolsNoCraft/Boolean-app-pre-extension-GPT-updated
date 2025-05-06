@@ -21,31 +21,48 @@ app.post('/api/analyze', async (req, res) => {
     }
 
     const prompt = `
-        Analyze the following text and extract relevant keywords for a Boolean search.
-        Categorize the keywords into the following fields:
-        - Job Titles (OR logic)
-        - Exclude Job Titles (NOT logic)
-        - Mandatory Skills (AND logic)
-        - Nice to Have Skills (OR logic)
-        - Locations (AND logic)
-        - Exclude Locations (NOT logic)
-        - Industries (OR logic)
-        - Exclude Industries (NOT logic)
-        - Current Companies (OR logic)
-        - Past Companies (OR logic)
-        - Exclude Companies (NOT logic)
-        - Schools / Universities (OR logic)
-        - Fields of Study (OR logic)
-        - Seniority Levels (OR logic)
-        - Exclude Seniority (NOT logic)
-        - Keywords (OR logic)
-        - Exclude Keywords (NOT logic)
+You are an expert in Boolean search optimization. 
+Analyze the following user input and extract search parameters into a structured JSON object.
 
-        Text:
-        ${text}
+### Rules:
+- Add job-related roles (e.g., "recruiter", "developer") to "Job Titles".
+- Detect and extract all seniority levels like "senior", "junior", "intern" etc,.
+  ➤ If the user input says someone *should be* or *must be* a certain level (e.g., "must be seniors"), add it to "Seniority Levels".
+  ➤ If the input excludes a level (e.g., "no juniors", "not interns"), add it to "Exclude Seniority".
+  ➤ A person can have both: e.g., "must be seniors, no juniors" means "Senior" in "Seniority Levels" and "Junior" in "Exclude Seniority".
+- Add any programming languages, tools, or technologies to "Mandatory Skills" or "Nice to Have Skills".
+- Locations (cities, countries, regions) go in "Locations" or "Exclude Locations". 
+  ➤ When a location is mentioned (e.g., Serbia), include both its English and native/local name (e.g., "Serbia", "Srbija").
+- Industries (e.g., Software, IT) go in "Industries".
+- Generic terms that don’t fit should go in "Keywords".
 
-        Provide the output as a JSON object where each field name is a key and the value is a list of extracted keywords.
-    `;
+### Output Format (JSON):
+{
+  "Job Titles": [],
+  "Exclude Job Titles": [],
+  "Mandatory Skills": [],
+  "Nice to Have Skills": [],
+  "Locations": [],
+  "Exclude Locations": [],
+  "Industries": [],
+  "Exclude Industries": [],
+  "Current Companies": [],
+  "Past Companies": [],
+  "Exclude Companies": [],
+  "Schools / Universities": [],
+  "Fields of Study": [],
+  "Seniority Levels": [],
+  "Exclude Seniority": [],
+  "Keywords": [],
+  "Exclude Keywords": []
+}
+
+### User Input:
+${text}
+
+Provide only the JSON output with no explanations.
+`;
+
 
     try {
         // Get completion from OpenAI API

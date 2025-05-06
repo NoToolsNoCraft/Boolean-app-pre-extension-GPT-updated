@@ -46,10 +46,10 @@ function populateFields(data) {
     'Current Companies': 'currentCompanies',
     'Past Companies': 'pastCompanies',
     'Exclude Companies': 'excludeCompanies',
-    'Schools': 'schools',
+    'Schools / Universities': 'schools',
     'Fields of Study': 'fieldsOfStudy',
     'Seniority Levels': 'seniorityLevels',
-    'Exclude Seniority Levels': 'excludeseniorityLevels',
+    'Exclude Seniority': 'excludeseniorityLevels',
     'Keywords': 'keywords',
     'Exclude Keywords': 'excludes'
   };
@@ -103,11 +103,4 @@ function addFieldWithValue(sectionId, value) {
   container.appendChild(div);
 }
 
-function resetFields() {
-  // Clear out all sections
-  const sections = document.querySelectorAll('.section');
-  sections.forEach(section => {
-    const container = section.querySelector('div');
-    if (container) container.innerHTML = ''; // Clear all fields in the section
-  });
-}
+
